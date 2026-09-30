@@ -1,0 +1,7 @@
+{
+	admin localhost:2019
+}
+
+:80 {
+	respond "Caddy is running. Configure your Caddyfile to add sites." 200
+}
