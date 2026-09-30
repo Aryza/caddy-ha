@@ -6,8 +6,8 @@ plain HTTP status message, so installation does not expose Home Assistant.
 ## Edit in Home Assistant
 
 Open **Settings → Apps → Caddy → Configuration**. Enter the complete Caddyfile
-in the **Caddyfile** option, save, and restart the app. For multiple lines,
-choose **⋮ → Edit in YAML** and use a block string:
+in the `caddyfile` option, save, and restart the app. The Configuration tab
+opens a multiline YAML editor by default. Use `|` to preserve line breaks:
 
 ```yaml
 caddyfile: |

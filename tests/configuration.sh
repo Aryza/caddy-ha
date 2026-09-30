@@ -45,4 +45,10 @@ printf '{"caddyfile":":80 { definitely_not_a_directive }"}\n' > /data/options.js
 if /run.sh > /tmp/caddy-test.log 2>&1; then exit 1; fi
 cmp /config/Caddyfile /tmp/applied
 [ ! -e /config/.Caddyfile.pending ]
+# YAML scalar/list/object mistakes must fail without replacing the file.
+for bad in 'null' '42' '[]' '{}'; do
+    printf '{"caddyfile":%s}\n' "$bad" > /data/options.json
+    if /run.sh > /tmp/caddy-test.log 2>&1; then exit 1; fi
+    cmp /config/Caddyfile /tmp/applied
+done
 echo 'PASS: defaults, multiline input, HTTP response, blank fallback, invalid-input preservation'

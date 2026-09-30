@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.1
+
+- Open the app Configuration tab as a multiline YAML editor by default.
+- Validate option types at startup now that the form schema is disabled.
+
 ## 1.1.0
 
 - Add a Caddyfile option to the Home Assistant app Configuration tab.

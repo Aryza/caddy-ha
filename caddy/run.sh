@@ -2,6 +2,13 @@
 set -eu
 
 mkdir -p /config /data/config
+# The YAML editor has no Supervisor form schema, so check option types here.
+if [ -f /data/options.json ]; then
+    jq -e 'type == "object" and ((has("caddyfile") | not) or (.caddyfile | type == "string"))' /data/options.json >/dev/null || {
+        echo "Invalid app options: caddyfile must be a YAML string. Use caddyfile: | for multiline contents." >&2
+        exit 1
+    }
+fi
 # A blank option preserves the existing file-based configuration.
 if [ -f /data/options.json ] && jq -e '.caddyfile != null and .caddyfile != ""' /data/options.json >/dev/null; then
     candidate=/config/.Caddyfile.pending
