@@ -6,8 +6,8 @@ plain HTTP status message, so installation does not expose Home Assistant.
 ## Edit in Home Assistant
 
 Open **Settings → Apps → Caddy → Configuration**. Enter the complete Caddyfile
-in the `caddyfile` option, save, and restart the app. The Configuration tab
-opens a multiline YAML editor by default. Use `|` to preserve line breaks:
+in the `caddyfile` option, save, and restart the app. For multiline editing,
+choose **⋮ → Edit in YAML**. Use `|` to preserve line breaks:
 
 ```yaml
 caddyfile: |
@@ -24,6 +24,13 @@ Invalid contents stop startup and leave the previous file intact; correct the
 option and restart. A nonempty option takes precedence over direct file edits
 on every restart. Leave it empty (`caddyfile: ""`) to use the existing file;
 clearing the option keeps the last applied contents.
+
+### Recovering from version 1.1.1
+
+Version 1.1.1 disabled the option schema to open the YAML editor by default.
+Supervisor discarded saved options as a result. Update to 1.1.2, switch to
+**Edit in YAML**, and paste your Caddyfile again. If the file was applied by an
+earlier version, the copy in the app configuration folder is still available.
 
 ## Edit the file directly
 

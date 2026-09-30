@@ -1,6 +1,6 @@
 FROM caddy:2.11.4-alpine
 
-ARG BUILD_VERSION=1.1.1
+ARG BUILD_VERSION=1.1.2
 ARG BUILD_ARCH
 LABEL io.hass.version="${BUILD_VERSION}" \
       io.hass.type="app" \

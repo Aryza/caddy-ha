@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.2
+
+- Restore the Caddyfile option schema so Supervisor retains saved contents.
+- Fix version 1.1.1 clearing options after saving.
+- Use Edit in YAML for multiline input; the schema must remain enabled.
+
 ## 1.1.1
 
 - Open the app Configuration tab as a multiline YAML editor by default.
