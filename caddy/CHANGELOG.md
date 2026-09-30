@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2.0
+
+- Include the Cloudflare DNS challenge module (v0.2.4).
+- Add a masked Cloudflare API token option, exported as CF_API_TOKEN.
+- Document private HTTPS through Tailscale without public port forwarding.
+
 ## 1.1.2
 
 - Restore the Caddyfile option schema so Supervisor retains saved contents.

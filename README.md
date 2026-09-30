@@ -32,6 +32,5 @@ Build: `docker build --build-arg BUILD_ARCH=amd64 -t caddy-ha:dev caddy`
 Validate the bundled configuration:
 `docker run --rm --entrypoint caddy caddy-ha:dev validate --config /etc/caddy/Caddyfile.default --adapter caddyfile`
 
-This app uses the standard Caddy distribution. DNS provider plugins are not
-included. See [Caddy documentation](https://caddyserver.com/docs/) and the
+This app includes the Cloudflare DNS provider plugin for private HTTPS. See [Caddy documentation](https://caddyserver.com/docs/) and the
 [Home Assistant app specification](https://developers.home-assistant.io/docs/apps/configuration/).

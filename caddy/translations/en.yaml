@@ -5,3 +5,8 @@ configuration:
       Full Caddyfile contents. Save and restart the app to apply changes.
       Choose Edit in YAML and use a block string (|) to preserve line breaks. Leave empty to use the existing
       Caddyfile in the app configuration folder.
+  cloudflare_api_token:
+    name: Cloudflare API token
+    description: >-
+      Token scoped to your domain with Zone DNS Edit and Zone Zone Read permissions.
+      Available to Caddy as {env.CF_API_TOKEN}. Masked in the form; visible in YAML.
