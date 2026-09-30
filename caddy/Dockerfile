@@ -1,6 +1,6 @@
 FROM caddy:2.11.4-alpine
 
-ARG BUILD_VERSION=1.0.0
+ARG BUILD_VERSION=1.1.0
 ARG BUILD_ARCH
 LABEL io.hass.version="${BUILD_VERSION}" \
       io.hass.type="app" \
@@ -12,6 +12,6 @@ ENV XDG_DATA_HOME=/data \
 
 COPY Caddyfile /etc/caddy/Caddyfile.default
 COPY run.sh /run.sh
-RUN chmod 0755 /run.sh
+RUN apk add --no-cache jq && chmod 0755 /run.sh
 WORKDIR /config
 ENTRYPOINT ["/run.sh"]

@@ -1,5 +1,5 @@
 name: Caddy
-version: "1.0.0"
+version: "1.1.0"
 slug: caddy
 url: https://github.com/Aryza/caddy-ha
 description: Caddy web server and reverse proxy with automatic HTTPS
@@ -23,6 +23,8 @@ map:
     path: /config
   - type: ssl
     read_only: true
-options: {}
-schema: {}
+options:
+  caddyfile: ""
+schema:
+  caddyfile: str
 timeout: 30

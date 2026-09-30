@@ -1,0 +1,7 @@
+configuration:
+  caddyfile:
+    name: Caddyfile
+    description: >-
+      Full Caddyfile contents. Save and restart the app to apply changes.
+      Use Edit in YAML for multiple lines. Leave empty to use the existing
+      Caddyfile in the app configuration folder.

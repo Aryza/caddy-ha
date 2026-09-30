@@ -3,7 +3,31 @@
 Start the app once to create its Caddyfile. The initial configuration serves a
 plain HTTP status message, so installation does not expose Home Assistant.
 
-Edit `/addon_configs/local_caddy/Caddyfile` using Samba or an editor with access
+## Edit in Home Assistant
+
+Open **Settings → Apps → Caddy → Configuration**. Enter the complete Caddyfile
+in the **Caddyfile** option, save, and restart the app. For multiple lines,
+choose **⋮ → Edit in YAML** and use a block string:
+
+```yaml
+caddyfile: |
+  {
+      admin localhost:2019
+  }
+  :80 {
+      respond "Hello from Caddy"
+  }
+```
+
+The app validates these contents before replacing `/config/Caddyfile`.
+Invalid contents stop startup and leave the previous file intact; correct the
+option and restart. A nonempty option takes precedence over direct file edits
+on every restart. Leave it empty (`caddyfile: ""`) to use the existing file;
+clearing the option keeps the last applied contents.
+
+## Edit the file directly
+
+With the Caddyfile option empty, edit `/addon_configs/local_caddy/Caddyfile` using Samba or an editor with access
 to app configuration folders. For a repository installation the folder is
 `/addon_configs/<repository-id>_caddy`. This folder appears as `/config` inside
 the app. Restart the app after saving. Invalid configurations fail startup with
